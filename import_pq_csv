@@ -1,0 +1,12 @@
+#!/bin/bash
+
+csv_filename=$1
+
+if [[ -z "$csv_filename" ]]
+then
+    echo "Usage: $0 csv_filename"
+    exit 1
+fi
+
+python -m esimport -s localhost:9200 -f $csv_filename -i hackday -t pq
+
